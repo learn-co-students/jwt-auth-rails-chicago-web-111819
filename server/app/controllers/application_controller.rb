@@ -21,6 +21,12 @@ class ApplicationController < ActionController::API
     end
   end
 
+  # def decoded_token(token)
+  #   # token => "eyJhbGciOiJIUzI1NiJ9.eyJiZWVmIjoic3RlYWsifQ._IBTHTLGX35ZJWTCcY30tLmwU9arwdpNVxtVU0NpAuI" 
+  #   JWT.decode(token, 'my_s3cr3t')[0]
+  #   # JWT.decode => [{ "beef"=>"steak" }, { "alg"=>"HS256" }]
+  # end
+
   def current_user
     if decoded_token()
       user_id = decoded_token[0]['user_id'] #[{ "user_id"=>"2" }, { "alg"=>"HS256" }]
